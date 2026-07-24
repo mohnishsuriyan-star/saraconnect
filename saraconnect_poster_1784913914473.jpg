@@ -1,0 +1,352 @@
+import React, { useState } from 'react';
+import { Sparkles, MessageSquare, Compass, Calendar, ArrowRight, ShieldCheck, Award, Users, BookOpen, MapPin, ExternalLink, ShoppingBag, Calculator, Maximize2, X, CheckCircle } from 'lucide-react';
+
+interface HeroSectionProps {
+  onNavigate: (tab: string) => void;
+  onOpenRegistration: () => void;
+}
+
+export const HeroSection: React.FC<HeroSectionProps> = ({ onNavigate, onOpenRegistration }) => {
+  const [isPosterModalOpen, setIsPosterModalOpen] = useState(false);
+
+  return (
+    <section className="relative overflow-hidden pt-8 pb-16 lg:pt-12 lg:pb-24">
+      {/* Editorial Background Ambient Glow Orbs */}
+      <div className="bg-glow glow-1" />
+      <div className="bg-glow glow-2" />
+      <div className="absolute top-1/3 right-1/4 w-80 h-80 bg-teal-500/10 dark:bg-teal-400/15 blur-[100px] rounded-full pointer-events-none -z-10" />
+
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
+        
+        {/* Editorial Eyebrow Tag */}
+        <div className="flex justify-center mb-6">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass-pill shadow-lg text-xs font-bold text-emerald-400 uppercase tracking-[2px] border border-emerald-500/30 hover:scale-105 transition-transform duration-300">
+            <Sparkles className="w-3.5 h-3.5 text-emerald-400 animate-spin" />
+            <span>Welcome Freshers Batch 2026 – 2030</span>
+            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping" />
+          </div>
+        </div>
+
+        {/* Hero Title & Subtitle */}
+        <div className="text-center max-w-5xl mx-auto">
+          <h1 className="font-heading font-black text-5xl sm:text-6xl md:text-7xl lg:text-8xl tracking-tight leading-[0.95] text-black dark:text-white">
+            NAVIGATE YOUR <br className="hidden sm:block" />
+            <span className="display-text">NEW BEGINNING.</span>
+          </h1>
+
+          <p className="mt-6 text-base sm:text-lg md:text-xl text-black dark:text-slate-300 font-medium leading-relaxed max-w-3xl mx-auto">
+            Experience the smartest campus entry yet. Your single intelligent portal for freshers onboarding, campus guidance, real-time AI assistance powered by Google Gemini, department timetables, faculty connects, and event registrations.
+          </p>
+
+          {/* Primary CTA Buttons */}
+          <div className="mt-10 flex flex-wrap items-center justify-center gap-3 sm:gap-4">
+            
+            {/* Ask AI Button */}
+            <button
+              onClick={() => onNavigate('ai-assistant')}
+              className="cta-button shadow-xl shadow-emerald-900/20 cursor-pointer"
+            >
+              <MessageSquare className="w-4 h-4" />
+              <span>Ask AI SaraBot</span>
+              <span className="px-2 py-0.5 text-[9px] bg-emerald-950/40 dark:bg-black/20 rounded-full font-bold">GEMINI</span>
+            </button>
+
+            {/* Explore Campus Button */}
+            <button
+              onClick={() => onNavigate('events')}
+              className="cta-button secondary-cta cursor-pointer"
+            >
+              <Compass className="w-4 h-4 text-emerald-900 dark:text-emerald-400" />
+              <span>Explore Campus</span>
+            </button>
+
+            {/* Register Events Button */}
+            <button
+              onClick={onOpenRegistration}
+              className="cta-button secondary-cta border-emerald-900/40 text-emerald-950 dark:text-emerald-300 hover:bg-emerald-900/10 cursor-pointer"
+            >
+              <Calendar className="w-4 h-4" />
+              <span>Registration Pass</span>
+            </button>
+
+            {/* SaraSell Marketplace Button */}
+            <button
+              onClick={() => onNavigate('sarasell')}
+              className="cta-button bg-emerald-900 text-white dark:bg-emerald-500 dark:text-slate-950 hover:bg-emerald-800 dark:hover:bg-emerald-400 font-bold border border-emerald-900/40 dark:border-emerald-500/40 shadow-lg flex items-center gap-1.5 cursor-pointer"
+            >
+              <ShoppingBag className="w-4 h-4" />
+              <span>SaraSell</span>
+            </button>
+
+            {/* Fee Calculator Button */}
+            <button
+              onClick={() => onNavigate('fee-calculator')}
+              className="cta-button bg-slate-900 text-white dark:bg-slate-800 hover:bg-slate-800 font-bold border border-slate-700 shadow-lg flex items-center gap-1.5 cursor-pointer"
+            >
+              <Calculator className="w-4 h-4 text-emerald-400" />
+              <span>Fee Calculator</span>
+            </button>
+          </div>
+
+          {/* College Info Highlights */}
+          <div className="mt-6 flex flex-wrap items-center justify-center gap-4 text-xs font-bold text-black dark:text-slate-400">
+            <span className="flex items-center gap-1">
+              <MapPin className="w-3.5 h-3.5 text-emerald-900 dark:text-emerald-500" /> Panjappur, Tiruchirappalli
+            </span>
+            <span>•</span>
+            <span className="flex items-center gap-1">
+              <Award className="w-3.5 h-3.5 text-emerald-900 dark:text-amber-500" /> NAAC A+ Grade Accredited
+            </span>
+            <span>•</span>
+            <span className="flex items-center gap-1">
+              <ShieldCheck className="w-3.5 h-3.5 text-emerald-900 dark:text-teal-500" /> Anna University Affiliated
+            </span>
+          </div>
+        </div>
+
+        {/* Featured Official Event Poster Banner */}
+        <div className="mt-12 max-w-5xl mx-auto glass-card rounded-3xl p-6 sm:p-8 border border-emerald-500/30 shadow-2xl bg-gradient-to-br from-emerald-950/80 via-slate-900/90 to-teal-950/80 text-white relative overflow-hidden">
+          <div className="absolute -top-24 -right-24 w-72 h-72 bg-emerald-500/20 rounded-full blur-3xl pointer-events-none" />
+          
+          <div className="flex flex-col lg:flex-row items-center gap-8 relative z-10">
+            {/* Interactive Poster Image Box */}
+            <div className="relative group w-full max-w-xs sm:max-w-sm lg:w-72 shrink-0 rounded-2xl overflow-hidden border-2 border-emerald-500/40 shadow-2xl bg-slate-950">
+              <img
+                src="/saraconnect_poster.jpg"
+                alt="SaraConnect Digital Gateway Official Poster"
+                className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500"
+                referrerPolicy="no-referrer"
+              />
+              <div className="absolute inset-0 bg-slate-950/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2">
+                <button
+                  onClick={() => setIsPosterModalOpen(true)}
+                  className="px-4 py-2 rounded-xl bg-emerald-500 text-slate-950 font-extrabold text-xs flex items-center gap-1.5 shadow-lg hover:bg-emerald-400 transition-colors cursor-pointer"
+                >
+                  <Maximize2 className="w-4 h-4" />
+                  <span>View Full Poster</span>
+                </button>
+              </div>
+              <div className="absolute bottom-2 left-2 right-2 px-3 py-1.5 rounded-lg bg-slate-950/80 backdrop-blur-md text-[10px] text-emerald-400 font-bold border border-emerald-500/30 text-center">
+                OFFICIAL CAMPUS POSTER 2026
+              </div>
+            </div>
+
+            {/* Poster Event Details & Information */}
+            <div className="flex-1 text-left space-y-4">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/20 border border-emerald-500/40 text-emerald-300 text-xs font-extrabold tracking-wider">
+                <Sparkles className="w-3.5 h-3.5 text-emerald-400 animate-pulse" />
+                <span>OFFICIAL FRESHERS EVENT</span>
+              </div>
+
+              <h2 className="font-heading font-black text-2xl sm:text-3xl lg:text-4xl text-white tracking-tight leading-tight">
+                FRESHERS' WELCOME PARTY: <span className="text-emerald-400">UNCOVER THE PLEXUS</span>
+              </h2>
+
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                Step into SaraConnect — your digital gateway to university life! Join us for the grand Freshers Welcome Party featuring live DJ performances, interactive Gemini AI showcases, club listings, faculty connects, and freshers awards.
+              </p>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2 text-xs font-semibold text-emerald-200">
+                <div className="flex items-center gap-2 bg-slate-900/80 p-2.5 rounded-xl border border-emerald-500/20">
+                  <Calendar className="w-4 h-4 text-emerald-400" />
+                  <span><strong>Date:</strong> OCT 12, 2026</span>
+                </div>
+                <div className="flex items-center gap-2 bg-slate-900/80 p-2.5 rounded-xl border border-emerald-500/20">
+                  <MapPin className="w-4 h-4 text-emerald-400" />
+                  <span><strong>Venue:</strong> THE HUB Campus Arena</span>
+                </div>
+                <div className="flex items-center gap-2 bg-slate-900/80 p-2.5 rounded-xl border border-emerald-500/20">
+                  <Sparkles className="w-4 h-4 text-emerald-400" />
+                  <span><strong>Tech:</strong> Powered by Google Gemini AI</span>
+                </div>
+                <div className="flex items-center gap-2 bg-slate-900/80 p-2.5 rounded-xl border border-emerald-500/20">
+                  <CheckCircle className="w-4 h-4 text-emerald-400" />
+                  <span><strong>Pass:</strong> Free Entry for 1st Years</span>
+                </div>
+              </div>
+
+              <div className="pt-3 flex flex-wrap items-center gap-3">
+                <button
+                  onClick={onOpenRegistration}
+                  className="px-6 py-3 rounded-2xl bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-400 hover:to-teal-400 text-slate-950 font-extrabold text-sm shadow-xl shadow-emerald-500/20 transition-all flex items-center gap-2 cursor-pointer"
+                >
+                  <span>Get Registration Pass</span>
+                  <ArrowRight className="w-4 h-4" />
+                </button>
+                <button
+                  onClick={() => setIsPosterModalOpen(true)}
+                  className="px-4 py-3 rounded-2xl bg-slate-800/80 hover:bg-slate-700 text-white font-bold text-xs border border-slate-700 transition-colors flex items-center gap-1.5 cursor-pointer"
+                >
+                  <Maximize2 className="w-4 h-4 text-emerald-400" />
+                  <span>Expand Poster</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* 3D Glassmorphism Highlight Cards */}
+        <div className="mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          
+          <div 
+            onClick={() => onNavigate('ai-assistant')}
+            className="glass-card p-6 rounded-2xl border border-emerald-500/20 hover:border-emerald-500/50 transition-all duration-300 hover:-translate-y-1 cursor-pointer group"
+          >
+            <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-emerald-500 to-green-600 flex items-center justify-center text-white shadow-lg shadow-emerald-500/20 mb-4 group-hover:scale-110 transition-transform">
+              <MessageSquare className="w-6 h-6" />
+            </div>
+            <h3 className="font-heading font-bold text-lg text-slate-900 dark:text-white flex items-center justify-between">
+              Gemini AI Bot
+              <ArrowRight className="w-4 h-4 text-emerald-500 opacity-0 group-hover:opacity-100 transition-opacity" />
+            </h3>
+            <p className="mt-2 text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+              Instant 24/7 AI answers regarding syllabus, faculty room locations, bus routes, and hostel rules.
+            </p>
+          </div>
+
+          <div 
+            onClick={() => onNavigate('events')}
+            className="glass-card p-6 rounded-2xl border border-emerald-500/20 hover:border-emerald-500/50 transition-all duration-300 hover:-translate-y-1 cursor-pointer group"
+          >
+            <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-teal-500 to-emerald-700 flex items-center justify-center text-white shadow-lg shadow-teal-500/20 mb-4 group-hover:scale-110 transition-transform">
+              <Calendar className="w-6 h-6" />
+            </div>
+            <h3 className="font-heading font-bold text-lg text-slate-900 dark:text-white flex items-center justify-between">
+              Freshers Events
+              <ArrowRight className="w-4 h-4 text-teal-500 opacity-0 group-hover:opacity-100 transition-opacity" />
+            </h3>
+            <p className="mt-2 text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+              Register for AARAMBH Freshers Orientation, SaraHack hackathons, sports fiesta, and cultural fests.
+            </p>
+          </div>
+
+          <div 
+            onClick={() => onNavigate('faculty')}
+            className="glass-card p-6 rounded-2xl border border-emerald-500/20 hover:border-emerald-500/50 transition-all duration-300 hover:-translate-y-1 cursor-pointer group"
+          >
+            <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-green-600 to-emerald-800 flex items-center justify-center text-white shadow-lg shadow-green-600/20 mb-4 group-hover:scale-110 transition-transform">
+              <Users className="w-6 h-6" />
+            </div>
+            <h3 className="font-heading font-bold text-lg text-slate-900 dark:text-white flex items-center justify-between">
+              Faculty Directory
+              <ArrowRight className="w-4 h-4 text-green-500 opacity-0 group-hover:opacity-100 transition-opacity" />
+            </h3>
+            <p className="mt-2 text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+              Explore 100+ qualified professors, HoD contacts, email addresses, and office locations across engineering wings.
+            </p>
+          </div>
+
+          <div 
+            onClick={() => onNavigate('timetable')}
+            className="glass-card p-6 rounded-2xl border border-emerald-500/20 hover:border-emerald-500/50 transition-all duration-300 hover:-translate-y-1 cursor-pointer group"
+          >
+            <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-emerald-600 to-teal-800 flex items-center justify-center text-white shadow-lg shadow-emerald-600/20 mb-4 group-hover:scale-110 transition-transform">
+              <BookOpen className="w-6 h-6" />
+            </div>
+            <h3 className="font-heading font-bold text-lg text-slate-900 dark:text-white flex items-center justify-between">
+              Class Timetables
+              <ArrowRight className="w-4 h-4 text-emerald-500 opacity-0 group-hover:opacity-100 transition-opacity" />
+            </h3>
+            <p className="mt-2 text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+              Access your weekly schedule for CSE, ECE, EEE, IT, AI&DS with instant PDF export for offline access.
+            </p>
+          </div>
+
+        </div>
+
+        {/* Quick Statistics Strip */}
+        <div className="mt-12 glass-card rounded-3xl p-6 sm:p-8 border border-emerald-500/20 shadow-2xl bg-gradient-to-r from-emerald-950/40 via-slate-900/40 to-teal-950/40">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+            
+            <div className="p-3">
+              <div className="font-heading font-extrabold text-3xl sm:text-4xl text-emerald-500">
+                10+
+              </div>
+              <p className="text-xs font-semibold text-slate-600 dark:text-slate-300 mt-1">
+                Engineering Depts
+              </p>
+            </div>
+
+            <div className="p-3 border-l border-slate-200/40 dark:border-slate-800">
+              <div className="font-heading font-extrabold text-3xl sm:text-4xl text-teal-400">
+                90%+
+              </div>
+              <p className="text-xs font-semibold text-slate-600 dark:text-slate-300 mt-1">
+                Placement Record
+              </p>
+            </div>
+
+            <div className="p-3 border-l border-slate-200/40 dark:border-slate-800">
+              <div className="font-heading font-extrabold text-3xl sm:text-4xl text-green-400">
+                25+
+              </div>
+              <p className="text-xs font-semibold text-slate-600 dark:text-slate-300 mt-1">
+                Clubs & Societies
+              </p>
+            </div>
+
+            <div className="p-3 border-l border-slate-200/40 dark:border-slate-800">
+              <div className="font-heading font-extrabold text-3xl sm:text-4xl text-emerald-300">
+                3000+
+              </div>
+              <p className="text-xs font-semibold text-slate-600 dark:text-slate-300 mt-1">
+                Active Campus Community
+              </p>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+      {/* Poster Fullscreen Lightbox Modal */}
+      {isPosterModalOpen && (
+        <div className="fixed inset-0 z-50 bg-slate-950/90 backdrop-blur-md flex items-center justify-center p-4 sm:p-6 overflow-y-auto">
+          <div className="relative max-w-3xl w-full bg-slate-900 rounded-3xl border border-emerald-500/40 p-4 sm:p-6 shadow-2xl animate-in zoom-in-95 duration-200 my-auto">
+            <button
+              onClick={() => setIsPosterModalOpen(false)}
+              className="absolute top-4 right-4 z-10 w-10 h-10 rounded-full bg-slate-950/80 text-white hover:bg-rose-600 flex items-center justify-center transition-colors cursor-pointer"
+            >
+              <X className="w-5 h-5" />
+            </button>
+
+            <div className="text-center mb-4">
+              <h3 className="font-heading font-black text-xl text-white">
+                SaraConnect – Digital Gateway to University Life
+              </h3>
+              <p className="text-xs text-emerald-400 font-semibold mt-1">
+                Freshers' Welcome Party: Uncover The Plexus | OCT 12, 2026 | THE HUB
+              </p>
+            </div>
+
+            <div className="rounded-2xl overflow-hidden border border-emerald-500/30 max-h-[75vh] flex justify-center bg-black">
+              <img
+                src="/saraconnect_poster.jpg"
+                alt="SaraConnect Official Poster Full View"
+                className="max-h-[75vh] w-auto object-contain"
+                referrerPolicy="no-referrer"
+              />
+            </div>
+
+            <div className="mt-4 flex justify-between items-center flex-wrap gap-3">
+              <span className="text-xs text-slate-400">
+                Powered by Google Gemini AI • Saranathan College of Engineering
+              </span>
+              <button
+                onClick={() => {
+                  setIsPosterModalOpen(false);
+                  onOpenRegistration();
+                }}
+                className="px-5 py-2.5 rounded-xl bg-emerald-500 text-slate-950 font-bold text-xs hover:bg-emerald-400 transition-colors cursor-pointer"
+              >
+                Register for Event
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+    </section>
+  );
+};
+
