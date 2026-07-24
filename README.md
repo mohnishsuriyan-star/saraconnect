@@ -387,3 +387,8 @@ Freshers Orientation & First Year Information:
 - Attendance: Minimum 75% attendance mandatory as per Anna University norms.
 - Dress Code: Formal wear with formal footwear/shoes. Formal shirt and trousers for boys; Salwar kameez / Churidar with dupatta for girls. Lab coats during practical sessions.
 `;
+[
+
+![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)
+
+](https://render.com/deploy?repo=https://github.com/YOUR_USERNAME/YOUR_REPO)
